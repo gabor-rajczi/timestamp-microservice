@@ -1,15 +1,16 @@
 var express = require("express");
 var app = express();
+var port = process.env.PORT || 8080;
 
 app.set("view engine", "pug");
 app.set("views", __dirname +"/views");
 app.get("/", usage);
 app.get("*", result);
 
-app.listen(8080, running);
+app.listen(port, running);
 
 function running(){
-    console.log("Timestamp Microservice App is running on port 8080!");
+    console.log("Timestamp Microservice App is running on port "+port+"!");
 }
 
 function usage(req, res){
